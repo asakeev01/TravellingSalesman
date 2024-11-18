@@ -265,13 +265,11 @@ for city in texas_cities_names:
     if city not in graph.nodes:
         graph.add_node(city)
 
-# Ensure all edges have weights
 for city1 in texas_cities_names:
     for city2 in texas_cities_names:
         if city1 != city2 and not graph.has_edge(city1, city2):
-            graph.add_edge(city1, city2, weight=1000)  # Default weight for missing distances
+            graph.add_edge(city1, city2, weight=1000)
 
-# Verify graph completeness
 for city1 in texas_cities_names:
     for city2 in texas_cities_names:
         assert graph.has_edge(city1, city2), f"Edge missing: {city1}-{city2}"
